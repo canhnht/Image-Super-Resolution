@@ -66,9 +66,9 @@ if __name__ == "__main__":
     Train Deep Denoise SR
     """
 
-    # ddsr = models.DeepDenoiseSR(scale)
-    # ddsr.create_model()
-    # ddsr.fit(nb_epochs=180)
+    ddsr = models.DeepDenoiseSR(scale)
+    ddsr.create_model()
+    ddsr.fit(nb_epochs=180)
 
     """
     Train Res Net SR
@@ -114,7 +114,7 @@ if __name__ == "__main__":
     """
 
     #esr = models.ExpantionSuperResolution(scale)
-    #esr.evaluate(val_path)
+    # esr.evaluate(val_path)
 
     """
     Evaluate DSRCNN on Set5/14 cannot be performed at the moment.
@@ -123,14 +123,14 @@ if __name__ == "__main__":
     """
 
     #dsr = models.DenoisingAutoEncoderSR(scale)
-    #dsr.evaluate(val_path)
+    # dsr.evaluate(val_path)
 
     """
     Evaluate DDSRCNN on Set5/14
     """
 
-    #ddsr = models.DeepDenoiseSR(scale)
-    #ddsr.evaluate(val_path)
+    ddsr = models.DeepDenoiseSR(scale)
+    ddsr.evaluate(val_path)
 
     """
     Evaluate ResNetSR on Set5/14
@@ -182,8 +182,8 @@ if __name__ == "__main__":
     #dsr = models.DenoisingAutoEncoderSR(scale)
     #dsr.upscale(path, save_intermediate=False, suffix="dsr")
 
-    # ddsr = models.DeepDenoiseSR(scale)
-    # ddsr.upscale(path, save_intermediate=False, suffix="ddsr")
+    ddsr = models.DeepDenoiseSR(scale)
+    ddsr.upscale(path, save_intermediate=False, suffix="ddsr")
 
     # rnsr = models.ResNetSR(scale)
     # rnsr.create_model(None, None, 3, load_weights=True)
@@ -191,5 +191,3 @@ if __name__ == "__main__":
 
     #gansr = models.GANImageSuperResolutionModel(scale)
     #gansr.upscale(path, save_intermediate=False, suffix='gansr')
-
-
