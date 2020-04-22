@@ -72,11 +72,13 @@ def transform_images(directory, output_directory, scaling_factor=2, max_nb_image
         img = imread(directory + file, mode='RGB')
 
         # Resize to 256 x 256
-        img = imresize(img, (img_size, img_size))
+        img = imresize(img, (img_size * scaling_factor,
+                             img_size * scaling_factor))
 
         # Create patches
-        hr_patch_size = (16 * scaling_factor * _image_scale_multiplier)
-        nb_hr_images = (img_size ** 2) // (stride ** 2)
+        hr_patch_size = (32 * scaling_factor * _image_scale_multiplier)
+        nb_hr_images = ((img_size * scaling_factor)
+                        ** 2) // (hr_patch_size ** 2)
 
         hr_samples = np.empty((nb_hr_images, hr_patch_size, hr_patch_size, 3))
 
@@ -91,7 +93,7 @@ def transform_images(directory, output_directory, scaling_factor=2, max_nb_image
                 hr_samples[i, :, :, :] = next(image_subsample_iterator)
                 i += 1
 
-        lr_patch_size = 16 * _image_scale_multiplier
+        lr_patch_size = 32 * _image_scale_multiplier
 
         t1 = time.time()
         # Create nb_hr_images 'X' and 'Y' sub-images of size hr_patch_size for each patch
