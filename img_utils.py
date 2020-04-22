@@ -25,9 +25,11 @@ assert (img_size ** 2) % (stride ** 2) == 0, "Number of images generated from st
                                              "a positive integer. Change stride such that : \n" \
                                              "(img_size ** 2) / (stride ** 2) is a positive integer."
 
-input_path = r"D:\Yue\Documents\Datasets\train2014\train2014\\"  # r"input_images/"
-# r"D:\Yue\Documents\Datasets\MSCOCO\val\valset\\" # r"val_images/"
-validation_path = r"val_images/"
+# input_path = r"D:\Yue\Documents\Datasets\train2014\train2014\\"  # r"input_images/"
+# # r"D:\Yue\Documents\Datasets\MSCOCO\val\valset\\" # r"val_images/"
+# validation_path = r"val_images/"
+input_path = r"train_images/"
+validation_path = r"test_images/"
 
 validation_set5_path = validation_path + "set5/"
 validation_set14_path = validation_path + "set14/"
